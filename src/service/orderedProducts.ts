@@ -28,7 +28,7 @@ export const getOrderedProductById = async (req: Request, res: Response) => {
 
 export const updateOrderedProductById = async (req: Request, res: Response) => {
     try {
-        const updatedOrderedProduct = await orderedProductService.updateOrderdProductById(req.body, req.params.id);
+        const updatedOrderedProduct = await orderedProductService.updateOrderedProductById(req.body, req.params.id);
         res.json(updatedOrderedProduct);
     } catch (err) {
         handleErrors(res, err);

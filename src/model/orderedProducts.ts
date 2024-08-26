@@ -29,7 +29,7 @@ export class OrderedProductsService {
         return result[0];
     }
 
-    async updateOrderdProductById(updatedOrderedProduct: OrderedProduct, id: string): Promise<OrderedProduct> {
+    async updateOrderedProductById(updatedOrderedProduct: OrderedProduct, id: string): Promise<OrderedProduct> {
         const sql = `  
       UPDATE products_orders   
       SET order_id = $1, product_id = $2, quantity = $3   
