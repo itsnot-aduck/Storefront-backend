@@ -7,7 +7,7 @@ import productRoutes from './routes/products';
 import orderedProductRoutes from './routes/orderedProducts';
 import orderRoutes from './routes/orders';
 
-const app: express.Application = express();
+export const app: express.Application = express();
 const address: string = '0.0.0.0:3000';
 
 // Cors

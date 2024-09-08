@@ -1,5 +1,7 @@
 import express, { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+dotenv.config();
 
 // JWT authentication
 export const verifyToken = (req: Request, res: Response, next: express.NextFunction) => {

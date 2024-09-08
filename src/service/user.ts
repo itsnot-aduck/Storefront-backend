@@ -2,6 +2,8 @@ import express, { Request, Response } from 'express';
 import { UserService, User } from '../model/users';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
+import dotenv from 'dotenv';
+dotenv.config();
 
 // make a new instance
 const userService = new UserService();
@@ -64,7 +66,7 @@ export const authenticateUser = async (req: Request, res: Response) => {
         if (!authenticatedUser) {
             return res.status(401).send('Invalid credentials');
         }
-        const token = jwt.sign({ id: authenticatedUser.id }, process.env.JWT_SECRET!);
+        const token = jwt.sign({ id: authenticatedUser.id }, process.env.JWT_SECRET as string, { expiresIn: '90d' });
         res.json({ user: authenticatedUser, token });
     } catch (err) {
         handleErrors(res, err);
